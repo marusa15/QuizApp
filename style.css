@@ -1,0 +1,44 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+.wrapper, .whereabout {
+	margin: 0 auto;
+	max-width: 200px;
+	
+}
+h1 {
+	margin: 20px auto 30px;
+}
+
+.start {
+	margin-right: auto;
+	margin-left: auto;
+	width: 150px;
+	padding: 10px;
+    font-size: medium;
+}
+
+.question, .final_score, .score, .wherabout {
+	margin: 0 auto;
+	max-width: 600px;
+	padding-top: 20px;
+}
+
+footer {
+	padding-top: 100px;
+}
+
+.score, .wherabout {
+	//margin: 0 auto;
+	//max-width: 300px;
+	padding-top: 20px;
+}
+
+.answer {
+	display: block;
+	margin-top: 10px;
+	padding: 5px 15px;
+}
