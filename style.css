@@ -13,6 +13,10 @@ h1 {
 	margin: 20px auto 30px;
 }
 
+.hidden {
+	display: none;
+}
+
 .start {
 	margin-right: auto;
 	margin-left: auto;
@@ -21,7 +25,7 @@ h1 {
     font-size: medium;
 }
 
-.question, .final_score, .score, .wherabout {
+.hidden-question, .wrapper, .final_score, .score, .wherabout, .question, .container {
 	margin: 0 auto;
 	max-width: 600px;
 	padding-top: 20px;
@@ -31,13 +35,13 @@ footer {
 	padding-top: 100px;
 }
 
-.score, .wherabout {
+.score, .whereabout {
 	//margin: 0 auto;
 	//max-width: 300px;
 	padding-top: 20px;
 }
 
-.answer {
+.answer, .next {
 	display: block;
 	margin-top: 10px;
 	padding: 5px 15px;

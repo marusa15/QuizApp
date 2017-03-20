@@ -4,94 +4,32 @@
 	<title>Quiz App</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-</head>
+</head>	
 <body>
 <main>
 	<div class="container">
+		<h1>Quiz App</h1>
 		<div class="wrapper">
-			<h1>Quiz App</h1>
-			<button class="start" type="submit">Start quiz</button> <!--to se prikaže na začetku, pol pa skrije -->
-		</div>	
-
-			<div class="question">
-				<h3>1. What is the best-selling theme by ProteusThemes of all times?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">CarPress</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">BuildPress</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">HairPress</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">Shaka</label>
-		        <button class="answer" type="submit">Submit answer</button>
-		        <p>Oh no! This is not the correct answer. Correct answer is <b>BuildPress</b></p>
-				<p>Yes, BuildPress has over 6,300 sales and counting.</p>
-			</div>
 			
-
-			<div class="question">
-				<h3>2. Who founded ProteusThemes?</h3>
-
-		        <input type="radio" name="founded" id="ans-1" value="0"><label for="ans-great-1">Primoz Cigler</label>
-		        <input type="radio" name="founded" id="ans-2" value="1"><label for="ans-great-2">Jaka Smid</label>
-		        <input type="radio" name="founded" id="ans-3" value="2"><label for="ans-great-3">Primoz Cigler and Jaka Smid</label>
-		        <input type="radio" name="founded" id="ans-4" value="3"><label for="ans-great-3">Michael Jackson</label>
-		        <button class="answer" type="submit">Submit answer</button>
-			</div>
-
-			<div class="question">
-				<h3>3. What aspects of WordPress themes is most important to us?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">support</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">quality of code</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">design</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">all of the above</label>
-		        <button class="answer" type="submit">Submit answer</button>
-			</div>
-
-			<div class="question">
-				<h3>4. How old is ProteusThemes?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">1 year</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">2 years</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">3 years</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">4 years</label>
-		        <button class="answer" type="submit">Submit answer</button>
-			</div>
-
-			<div class="question">
-				<h3>5. Which is our go-to builder?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">We have our own proprietary builder.</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">Page Builder by SiteOrigin</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">Visual Composer by WPBakery</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">Shaka</label>
-		        <button class="answer" type="submit">None of the above</button>
-			</div>
-
-			<div class="question">
-				<h3>6. What is the best way to import demo content?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">With One-Click Demo Import plugin</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">What is demo content?</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">Manually</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">Why is demo content useful?</label>
-		        <button class="answer" type="submit">Submit answer</button>
-			</div>
-
-			<div class="question">
-				<h3>7. Which one of our themes is NOT responsive?</h3>
-
-		        <input type="radio" name="best-selling" id="ans-1" value="0"><label for="ans-great-1">It's a trick question. All our themes are responsive.</label>
-		        <input type="radio" name="best-selling" id="ans-2" value="1"><label for="ans-great-2">What is responsive?</label>
-		        <input type="radio" name="best-selling" id="ans-3" value="2"><label for="ans-great-3">HairPress</label>
-		        <input type="radio" name="best-selling" id="ans-4" value="3"><label for="ans-great-3">Readable</label>
-		        <button class="answer" type="submit">Submit answer</button>
-			</div>
-
-			<!--footer -->
+			<form id="js-start">
+				<button class="start" type="submit">Start quiz</button> 
+			</form>
+			
+						
+		</div>							
+			    
+			
+		
+		<form id="js-form">	
+		<div class="choices"></div>
+		<div class="button"></div>
+		</form>       
+		<!--footer -->
 			<footer>
-				<h3 class="whereabout">Question 1/10</h3>
+				<h3 class="whereabout"></h3>
 
-				<h3 class="score">Current score: 5 correct, 2 incorrect</h3>
-				<h3 class="final_score">Final score: 10 correct answers!</h3>	<!--start again with the button-->
+				<h3 class="score"></h3>
+				<h3 class="final_score"></h3>	<!--start again with the button-->
 			</footer>
 
 	</div>
