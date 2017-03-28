@@ -144,7 +144,7 @@ var displayAnswer = function(state, element) {
 }  
 
 var displayFinalScreen = function(state, element) {
-  return element.html('<p>You have reached the end of the quiz.</p>');
+  return element.html('<p class="final-screen">You have reached the end of the quiz.</p>');
 } 
 
 var displayFinalScore = function(state, element) {
@@ -201,7 +201,7 @@ $('.button').on('click', '.next', function(event) {
     displayButton(state, $('.button'));
   }
   else {
-    displayFinalScreen(state, $('.wrapper'));
+    displayFinalScreen(state, $('.replace-wrapper'));
     displayFinalScore(state, $('.choices'));
     displayRepeatButton(state, $('.button'));
   }
