@@ -120,7 +120,7 @@ var displayNextButton = function(state, element) {
 }
 
 var displayProgress = function(state, element) {
-  return element.html('Question ' + (state.currentQuestion + 1) + '/10');
+  return element.html('Question ' + (state.currentQuestion + 1) + '/' + state.items.length);
 }
 
 var displayScore = function(state, element) {
