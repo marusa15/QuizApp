@@ -106,7 +106,7 @@ var displayChoices = function(state, element) {
       return input.join('<br>');
     });
   console.log(typeof choiceHTML);
-  element.html('<div class="blue-frame">');
+
   element.html(choiceHTML);
 }
 
@@ -120,12 +120,12 @@ var displayNextButton = function(state, element) {
 }
 
 var displayProgress = function(state, element) {
-  return element.html('<p class="whereabout">Question ' + (state.currentQuestion + 1) + '/10</p>');
+  return element.html('Question ' + (state.currentQuestion + 1) + '/10');
 }
 
 var displayScore = function(state, element) {
   console.log('state.currentScore: ' + state.currentScore);
-  return element.html('<p class="score">Current score: ' + state.currentScore + ' correct answers</p>');
+  return element.html('Current score: ' + state.currentScore + ' correct answers');
 }
 
 //state.items[state.currentQuestion].correctChoiceIndex)
