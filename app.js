@@ -134,11 +134,11 @@ var displayAnswer = function(state, element) {
   var correctChoice = state.items[state.currentQuestion].correctChoiceIndex;
   var userChoice = state.items[state.currentQuestion].userChoiceIndex;
   if (correctChoice == userChoice) {
-    return element.html('<p>' + state.items[state.currentQuestion].correctAnswerText + '</p>');
+    return element.html('<p class="correct">' + state.items[state.currentQuestion].correctAnswerText + '</p>');
   } 
 
   else {
-    return element.html('<p>' + state.items[state.currentQuestion].falseAnswerText + '</p>');
+    return element.html('<p class="incorrect">' + state.items[state.currentQuestion].falseAnswerText + '</p>');
   } 
  
 }  
@@ -192,7 +192,9 @@ $('main').on('submit', '#js-form', function(event) {
 $('.button').on('click', '.next', function(event) {
   
 
-  if (state.currentQuestion < state.items.length) {
+  if (state.currentQuestion < (state.items.length - 1)) {
+    console.log("current question: " + state.currentQuestion);
+    console.log("total number of questions: " + state.items.length);
     incrementQuestion(state);
     displayQuestion(state, $('.replace-wrapper'));
     displayChoices(state, $('.choices'));
