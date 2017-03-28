@@ -2,7 +2,15 @@
 // Single state object
 
 var state = {
-    items: [ 
+    items: [
+      {   
+        questionText: "What is ProteusThemes' primary focus?",
+        choices: ["Well thought-out, easy-to-use niche themes for small businesses", "Multipurpose themes that can be used for any kind of industry or purpose.", "Beautifully designed themes for blogs, newspapers and creative businesses.", "None of these"],
+        correctChoiceIndex: 0,
+        userChoiceIndex: undefined,
+        correctAnswerText: "Yay, this is correct.",
+        falseAnswerText: "Your answer is not correct. ProteusThemes crafts niche themes for small businesses."
+      }, 
       {  	
         questionText: "Who founded ProteusThemes?",
         choices: ["Primoz Cigler", "Jaka Smid", "Primoz Cigler and Jaka Smid", "None of these"],
@@ -29,18 +37,18 @@ var state = {
       },
       {
         questionText: "Which is our go-to builder?",
-        choices: ["We have our own proprietary builder.", "Page Builder by SiteOrigin", "Visual Composer by WPBakery", "None of the above"],
+        choices: ["We have our own proprietary builder", "Page Builder by SiteOrigin", "Visual Composer by WPBakery", "Beaver Builder"],
         correctChoiceIndex: 1,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
         falseAnswerText: "Unfortunately, this is not correct."
       },
       {
-        questionText: "What is the best way to import demo content?",
-        choices: ["With One-Click Demo Import plugin", "What is demo content?","Manually", "Why is demo content useful?"],
+        questionText: "What is the easiest way to import demo content?",
+        choices: ["With One Click Demo Import plugin", "Dashboar > Tools > Import ","With WordPress importer", "There's no easy way to do it. It's best to start building from scratch."],
         correctChoiceIndex: 0,
         userChoiceIndex: undefined,
-        correctAnswerText: "Yay, this is correct!",
+        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any template.", // 
         falseAnswerText: "Unfortunately, this is not correct."
       },
       {
@@ -52,12 +60,12 @@ var state = {
         falseAnswerText: "Unfortunately, this is not correct."
        }
       ],
-    currentQuestion: 0, // currentQuestion = state.items[0] second key-value pair in object 'state'
+    currentQuestion: 0, 
     currentScore: 0
 
   //
 };
-
+//console.log(state.items[state.currentQuestion].choices);
 // State modification functions
 
 
@@ -77,10 +85,6 @@ var increaseScore = function(state, choiceIndex) {
    }
 }
 
-
-
-
-
 // Render functions
 
 var displayQuestion = function(state, element) {
@@ -93,33 +97,35 @@ var displayQuestion = function(state, element) {
 } 
 
 var displayChoices = function(state, element) {
-  var choiceHTML = '<form class="js-choices">';
-  choiceHTML = choiceHTML + state.items[state.currentQuestion].choices.map(function(choice, index) {
-       return '<input type="radio" name="choices" id="r1" value="' + index + '">' +
-       '<label for="choices">' + choice + '</label>';
+ 
+  var choiceHTML = state.items[state.currentQuestion].choices.map(function(choice, index) {
+       var input = ['<div class="choice-one"><input type="radio" class="choice-item" name="choices" id="r' + index + '" value="' + index + '">' +
+       '<label for="choices">' + choice + '</label></div>'];
+
+      console.log(input);
+      return input.join('<br>');
     });
-  
+  console.log(typeof choiceHTML);
+  element.html('<div class="blue-frame">');
   element.html(choiceHTML);
 }
 
 var displayButton = function(state, element) {
-  return element.html('<button class="answer" type="submit">Submit answer</button></form>');
-  //var buttonHTML = function() {
-    //'<button class="answer" button-id="' + + '" type="submit">Submit answer</button>';
- // }  
+  return element.html('<button class="answer" type="submit">Submit answer</button></div>');
+  
 } 
 
 var displayNextButton = function(state, element) {
-  return element.html('<button class="next" type="submit">Next question</button></form>');
+  return element.html('<button class="next" type="submit">Next question</button></div>');
 }
 
 var displayProgress = function(state, element) {
-  return element.html('<h3 class="whereabout">Question ' + (state.currentQuestion + 1) + '/10</h3>');
+  return element.html('<p class="whereabout">Question ' + (state.currentQuestion + 1) + '/10</p>');
 }
 
 var displayScore = function(state, element) {
   console.log('state.currentScore: ' + state.currentScore);
-  return element.html('<h3 class="score">Current score: ' + state.currentScore + ' correct answers</h3>');
+  return element.html('<p class="score">Current score: ' + state.currentScore + ' correct answers</p>');
 }
 
 //state.items[state.currentQuestion].correctChoiceIndex)
@@ -161,7 +167,7 @@ $('#js-start').submit(function(event) {
 	event.preventDefault();
 	
   
-  displayQuestion(state, $('.wrapper'));
+  displayQuestion(state, $('.replace-wrapper'));
   displayChoices(state, $('.choices'));
   displayButton(state, $('.button'));
   displayProgress(state, $('.whereabout'));
@@ -169,7 +175,7 @@ $('#js-start').submit(function(event) {
 
 //submits question
 
-$('.container').on('submit', '#js-form', function(event) {
+$('main').on('submit', '#js-form', function(event) {
   event.preventDefault();
   logUserAnswer(state, $('input[name=choices]:checked').val());
   increaseScore(state, $('input[name=choices]:checked').val());
@@ -183,12 +189,12 @@ $('.container').on('submit', '#js-form', function(event) {
 });
 
 //goes to next question
-$('.container').on('click', '.next', function(event) {
+$('.button').on('click', '.next', function(event) {
   
 
   if (state.currentQuestion < state.items.length) {
     incrementQuestion(state);
-    displayQuestion(state, $('.wrapper'));
+    displayQuestion(state, $('.replace-wrapper'));
     displayChoices(state, $('.choices'));
     displayButton(state, $('.button'));
   }
@@ -202,7 +208,7 @@ $('.container').on('click', '.next', function(event) {
 });
 
 //goes back to start
-$('.container').on('click', '.repeat-quiz', function(event) {
+$('main').on('click', '.repeat-quiz', function(event) {
   location.reload();
 });  
 
