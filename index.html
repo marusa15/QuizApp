@@ -2,37 +2,45 @@
 <html>
 <head>
 	<title>Quiz App</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>	
 <body>
 <main>
+
 	<div class="container">
-		<h1>Quiz App</h1>
+		
+			<div class="header"><h1>ProteusQuiz</h1>
+			<p>Solve this quiz and get 20% off discount code</p>	
+			</div>
+	</div>
+	<div class="js-score-progress">
+				<span><p class="whereabout"></p></span><span><p class="score"></p></span>
+
+				
+				<p class="final_score"></p>	
+	</div>	
+	<div class="replace-wrapper">
 		<div class="wrapper">
 			
 			<form id="js-start">
-				<button class="start" type="submit">Start quiz</button> 
+				<button class="start" type="submit">Start Quiz</button> 
 			</form>
-			
-						
-		</div>							
-			    
-			
-		
+		</div>	
+	
+	</div>
+
+	
+
 		<form id="js-form">	
 		<div class="choices"></div>
 		<div class="button"></div>
 		</form>       
 		<!--footer -->
-			<footer>
-				<h3 class="whereabout"></h3>
+				
 
-				<h3 class="score"></h3>
-				<h3 class="final_score"></h3>	<!--start again with the button-->
-			</footer>
-
-	</div>
+	
 </main>
 
  <!-- link to jquery -->
