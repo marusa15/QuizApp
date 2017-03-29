@@ -3,15 +3,15 @@
 
 var state = {
     items: [
-      {   
+      {
         questionText: "What is ProteusThemes' primary focus?",
         choices: ["Well thought-out, easy-to-use niche themes for small businesses", "Multipurpose themes that can be used for any kind of industry or purpose.", "Beautifully designed themes for blogs, newspapers and creative businesses.", "None of these"],
         correctChoiceIndex: 0,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct.",
         falseAnswerText: "Your answer is not correct. ProteusThemes crafts niche themes for small businesses."
-      }, 
-      {  	
+      },
+      {
         questionText: "Who founded ProteusThemes?",
         choices: ["Primoz Cigler", "Jaka Smid", "Primoz Cigler and Jaka Smid", "None of these"],
         correctChoiceIndex: 2,
@@ -48,7 +48,7 @@ var state = {
         choices: ["With One Click Demo Import plugin", "Dashboar > Tools > Import ","With WordPress importer", "There's no easy way to do it. It's best to start building from scratch."],
         correctChoiceIndex: 0,
         userChoiceIndex: undefined,
-        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any template.", // 
+        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any template.", //
         falseAnswerText: "Unfortunately, this is not correct."
       },
       {
@@ -60,7 +60,7 @@ var state = {
         falseAnswerText: "Unfortunately, this is not correct."
        }
       ],
-    currentQuestion: 0, 
+    currentQuestion: 0,
     currentScore: 0
 
   //
@@ -81,26 +81,26 @@ var incrementQuestion = function(state) {
 var increaseScore = function(state, choiceIndex) {
    if (choiceIndex == state.items[state.currentQuestion].correctChoiceIndex) {
       return state.currentScore++
-    
+
    }
 }
 
 // Render functions
 
 var displayQuestion = function(state, element) {
-  //  while (state.currentQuestion < 6) { 
-    
-    var questionHTML = '<h3 class="display-question">' + state.items[state.currentQuestion].questionText + '</h3>'; 
-    
+  //  while (state.currentQuestion < 6) {
+
+    var questionHTML = '<h3 class="display-question">' + state.items[state.currentQuestion].questionText + '</h3>';
+
     element.html(questionHTML);
 //  }
-} 
+}
 
 var displayChoices = function(state, element) {
- 
+
   var choiceHTML = state.items[state.currentQuestion].choices.map(function(choice, index) {
        var input = ['<div class="choice-one"><input type="radio" class="choice-item" name="choices" id="r' + index + '" value="' + index + '">' +
-       '<label for="choices">' + choice + '</label></div>'];
+       '<label for="r' + index + '">' + choice + '</label></div>'];
 
       console.log(input);
       return input.join('<br>');
@@ -112,8 +112,8 @@ var displayChoices = function(state, element) {
 
 var displayButton = function(state, element) {
   return element.html('<button class="answer" type="submit">Submit answer</button></div>');
-  
-} 
+
+}
 
 var displayNextButton = function(state, element) {
   return element.html('<button class="next" type="submit">Next question</button></div>');
@@ -130,22 +130,22 @@ var displayScore = function(state, element) {
 
 //state.items[state.currentQuestion].correctChoiceIndex)
 var displayAnswer = function(state, element) {
- 
+
   var correctChoice = state.items[state.currentQuestion].correctChoiceIndex;
   var userChoice = state.items[state.currentQuestion].userChoiceIndex;
   if (correctChoice == userChoice) {
     return element.html('<p class="correct">' + state.items[state.currentQuestion].correctAnswerText + '</p>');
-  } 
+  }
 
   else {
     return element.html('<p class="incorrect">' + state.items[state.currentQuestion].falseAnswerText + '</p>');
-  } 
- 
-}  
+  }
+
+}
 
 var displayFinalScreen = function(state, element) {
   return element.html('<p class="final-screen">You have reached the end of the quiz.</p>');
-} 
+}
 
 var displayFinalScore = function(state, element) {
   return element.html('<p>Your final score is: ' + state.currentScore + '</p>');
@@ -154,10 +154,10 @@ var displayFinalScore = function(state, element) {
 var displayRepeatButton = function(state, element) {
   return element.html('<button class="repeat-quiz">Start again</button>');
 }
- 
-   
-        
-	       
+
+
+
+
 
 // Event listeners
 
@@ -165,8 +165,8 @@ var displayRepeatButton = function(state, element) {
 
 $('#js-start').submit(function(event) {
 	event.preventDefault();
-	
-  
+
+
   displayQuestion(state, $('.replace-wrapper'));
   displayChoices(state, $('.choices'));
   displayButton(state, $('.button'));
@@ -179,18 +179,18 @@ $('main').on('submit', '#js-form', function(event) {
   event.preventDefault();
   logUserAnswer(state, $('input[name=choices]:checked').val());
   increaseScore(state, $('input[name=choices]:checked').val());
-  
+
   displayAnswer(state, $('.choices'), $('input[name=choices]:checked').val());
   displayNextButton(state, $('.button'));
   displayScore(state, $('.score'));
-  
- 
-  
+
+
+
 });
 
 //goes to next question
 $('.button').on('click', '.next', function(event) {
-  
+
 
   if (state.currentQuestion < (state.items.length - 1)) {
     console.log("current question: " + state.currentQuestion);
@@ -212,7 +212,7 @@ $('.button').on('click', '.next', function(event) {
 //goes back to start
 $('main').on('click', '.repeat-quiz', function(event) {
   location.reload();
-});  
+});
 
 
 
@@ -222,9 +222,9 @@ $('main').on('click', '.repeat-quiz', function(event) {
 
 /*
 I thought maybe a mini specification outline of functionality might help. I have reached out to another mentor too and will discuss with her on Friday what other ways we explain state management.
- 
+
 1. Two main objects needed, the STATE object and the ELEMENTS object
-   a. STATE: contains multiple key pair values including questions (each containing 1 question, 4 answer choices, and the correct answer reference), current question location, feedback, score, router position 
+   a. STATE: contains multiple key pair values including questions (each containing 1 question, 4 answer choices, and the correct answer reference), current question location, feedback, score, router position
    b. ELEMENTS: contain selector info for each element in the html that will get manipulated
 2. Next we render the function flow:
    a. start quiz - display start button
@@ -238,8 +238,8 @@ I thought maybe a mini specification outline of functionality might help. I have
 
 To better answer your question on labels (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label):
 
-Labels are not themselves directly associated with forms. 
-They are only indirectly associated with forms through the controls with which they're 
+Labels are not themselves directly associated with forms.
+They are only indirectly associated with forms through the controls with which they're
 associated. This means the for attribute is the link to the form field.
 
 Questions:
