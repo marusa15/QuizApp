@@ -213,36 +213,3 @@ $('.button').on('click', '.next', function(event) {
 $('main').on('click', '.repeat-quiz', function(event) {
   location.reload();
 });
-
-
-
-
-
-
-
-/*
-I thought maybe a mini specification outline of functionality might help. I have reached out to another mentor too and will discuss with her on Friday what other ways we explain state management.
-
-1. Two main objects needed, the STATE object and the ELEMENTS object
-   a. STATE: contains multiple key pair values including questions (each containing 1 question, 4 answer choices, and the correct answer reference), current question location, feedback, score, router position
-   b. ELEMENTS: contain selector info for each element in the html that will get manipulated
-2. Next we render the function flow:
-   a. start quiz - display start button
-   b. display first question
-   c. display question answers
-   b. display submit button - listen for answer given if form submission
-   e. check for correct/false answer
-      e.1. display feedback and tally score
-      e.2. display next question button
-   f. display next question
-
-To better answer your question on labels (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label):
-
-Labels are not themselves directly associated with forms.
-They are only indirectly associated with forms through the controls with which they're
-associated. This means the for attribute is the link to the form field.
-
-Questions:
-How to hide the 'start quiz' button?
-
-*/
