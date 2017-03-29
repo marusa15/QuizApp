@@ -25,7 +25,7 @@ var state = {
         correctChoiceIndex: 3,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
-        falseAnswerText: "Unfortunately, this is not correct."
+        falseAnswerText: "Unfortunately, this is not correct. We value support, quality of code and design in equal measure."
       },
       {
         questionText: "How old is ProteusThemes?",
@@ -33,7 +33,7 @@ var state = {
         correctChoiceIndex: 3,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
-        falseAnswerText: "Unfortunately, this is not correct."
+        falseAnswerText: "Unfortunately, this is not correct. We celebrated our 4th birthday a couple of months ago."
       },
       {
         questionText: "Which is our go-to builder?",
@@ -41,15 +41,15 @@ var state = {
         correctChoiceIndex: 1,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
-        falseAnswerText: "Unfortunately, this is not correct."
+        falseAnswerText: "Unfortunately, this is not correct. We use Page Builder by SiteOrigin."
       },
       {
         questionText: "What is the easiest way to import demo content?",
-        choices: ["With One Click Demo Import plugin", "Dashboar > Tools > Import ","With WordPress importer", "There's no easy way to do it. It's best to start building from scratch."],
+        choices: ["With One Click Demo Import plugin", "Dashboard > Tools > Import ","With WordPress importer", "There's no easy way to do it. It's best to start building from scratch."],
         correctChoiceIndex: 0,
         userChoiceIndex: undefined,
-        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any template.", //
-        falseAnswerText: "Unfortunately, this is not correct."
+        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any theme.", //
+        falseAnswerText: "Unfortunately, this is not correct. One Click demo import plugin doesn't require any additional settings to recreate a demo of any theme."
       },
       {
         questionText: "Which one of our themes is NOT responsive?",
@@ -57,7 +57,7 @@ var state = {
         correctChoiceIndex: 3,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
-        falseAnswerText: "Unfortunately, this is not correct."
+        falseAnswerText: "Unfortunately, this is not correct. All our themes are responsive."
        }
       ],
     currentQuestion: 0,
