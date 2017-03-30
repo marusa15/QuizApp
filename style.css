@@ -2,7 +2,7 @@
  * {
   box-sizing: border-box;
   color: #494b4f;
-} 
+}
 
 .container {
 	background-color: buttonface;
@@ -14,7 +14,7 @@
 	padding-bottom: 15px;
 	color: #494b4f;
 	margin: 0 auto;
-}	
+}
 
 h1 {
 	margin: 50px auto 60px;
@@ -29,7 +29,7 @@ h1 {
 }
 
 .js-score-progress {
-	
+
     width: 500px;
     margin: 0 auto;
     margin-top: 20px;
@@ -51,12 +51,12 @@ h1 {
 	margin: 0 auto;
 	border: 2px solid #7a93bc;
     border-radius: 15px;
-} 
+}
 
 #js-form {
 	margin: 0 auto;
     width: 500px;
-    
+
 }
 
 .choices {
@@ -74,10 +74,10 @@ h1 {
 .wrapper {
 	margin: 0 auto;
 	max-width: 150px;
-	
+
 }
 
-.choices p.incorrect {
+.choices p.incorrect, .choices p.correct {
 	width: 500px;
 }
 
