@@ -48,7 +48,7 @@ var state = {
         choices: ["With One Click Demo Import plugin", "Dashboard > Tools > Import ","With WordPress importer", "There's no easy way to do it. It's best to start building from scratch."],
         correctChoiceIndex: 0,
         userChoiceIndex: undefined,
-        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by yours truly, doesn't require any additional settings to recreate a demo of any theme.", //
+        correctAnswerText: "Yay, this is correct! One click demo import plugin, developed by" + "<br>" + "yours truly, doesn't require any additional settings to recreate a " + "<br>" + " demo of any theme.", //
         falseAnswerText: "Unfortunately, this is not correct. One Click demo import plugin doesn't require any additional settings to recreate a demo of any theme."
       },
       {
@@ -148,11 +148,15 @@ var displayFinalScreen = function(state, element) {
 }
 
 var displayFinalScore = function(state, element) {
-  return element.html('<p>Your final score is: ' + state.currentScore + '</p>');
+  return element.html('<p>Sorry, your final score is: ' + state.currentScore + '</p> <br><p>Click <b>Start again</b> button to retry</p>');
 }
 
 var displayRepeatButton = function(state, element) {
   return element.html('<button class="repeat-quiz">Start again</button>');
+}
+
+var displayDiscountCode = function(state, element) {
+  return element.html('<p class="correct">Congratulations! All your answers were correct." + "<br> +" Please apply code * at checkout</p>');
 }
 
 
@@ -202,9 +206,24 @@ $('.button').on('click', '.next', function(event) {
   }
   else {
     displayFinalScreen(state, $('.replace-wrapper'));
-    displayFinalScore(state, $('.choices'));
-    displayRepeatButton(state, $('.button'));
+
+
+    console.log("final score: " + state.items.length);
+
+    if (state.currentScore == state.items.length) {
+      displayDiscountCode(state, $('.choices'));
+      displayRepeatButton(state, $('.button'));
+    }
+
+    else {
+      displayFinalScore(state, $('.choices'));
+      displayRepeatButton(state, $('.button'));
+    }
+
+
+
   }
+
   displayProgress(state, $('.whereabout'));
   displayScore(state, $('.score'));
 });
