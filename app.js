@@ -25,7 +25,7 @@ var state = {
         correctChoiceIndex: 3,
         userChoiceIndex: undefined,
         correctAnswerText: "Yay, this is correct!",
-        falseAnswerText: "Unfortunately, this is not correct. We value support, quality of code and design in equal measure."
+        falseAnswerText: "Unfortunately, this is not correct. We value support, quality of code and design in equal parts."
       },
       {
         questionText: "How old is ProteusThemes?",
