@@ -148,7 +148,7 @@ var displayFinalScreen = function(state, element) {
 }
 
 var displayFinalScore = function(state, element) {
-  return element.html('<p>Sorry, your final score is: ' + state.currentScore + '</p> <br><p>Click <b>Start again</b> button to retry</p>');
+  return element.html('<p>Sorry, your final score is: ' + state.currentScore + 'Click <b>Start again</b> button to retry</p>');
 }
 
 var displayRepeatButton = function(state, element) {
@@ -156,7 +156,7 @@ var displayRepeatButton = function(state, element) {
 }
 
 var displayDiscountCode = function(state, element) {
-  return element.html('<p class="correct">Congratulations! All your answers were correct." + "<br> +" Please apply code * at checkout</p>');
+  return element.html('<p class="correct">Congratulations! All your answers were correct. Please apply code <b>MARUSAJSGURU</b> at checkout</p>');
 }
 
 
