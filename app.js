@@ -156,7 +156,7 @@ var displayRepeatButton = function(state, element) {
 }
 
 var displayDiscountCode = function(state, element) {
-  return element.html('<p class="correct">Congratulations! All your answers were correct. Use code <b>MARUSAJSGURU</b> on any package in our <a href="https://www.proteusthemes.com/wordpress-themes/"checkout>shop.</a></p>');
+  return element.html('<p class="correct">Congratulations! All your answers were correct.</p>');
 }
 
 
@@ -181,7 +181,7 @@ $('#js-start').submit(function(event) {
 
 $('main').on('submit', '#js-form', function(event) {
   event.preventDefault();
-  logUserAnswer(state, $('input[name=choices]:checked').val());
+  logUserAnswer(state, $('input[name=choices]:checked').val()); // gets the index of the checked choice element
   increaseScore(state, $('input[name=choices]:checked').val());
 
   displayAnswer(state, $('.choices'), $('input[name=choices]:checked').val());
