@@ -169,8 +169,6 @@ var displayDiscountCode = function(state, element) {
 
 $('#js-start').submit(function(event) {
 	event.preventDefault();
-
-
   displayQuestion(state, $('.replace-wrapper'));
   displayChoices(state, $('.choices'));
   displayButton(state, $('.button'));
@@ -183,7 +181,6 @@ $('main').on('submit', '#js-form', function(event) {
   event.preventDefault();
   logUserAnswer(state, $('input[name=choices]:checked').val()); // gets the index of the checked choice element
   increaseScore(state, $('input[name=choices]:checked').val());
-
   displayAnswer(state, $('.choices'), $('input[name=choices]:checked').val());
   displayNextButton(state, $('.button'));
   displayScore(state, $('.score'));
